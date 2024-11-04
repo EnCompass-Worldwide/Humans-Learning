@@ -1,26 +1,39 @@
 ---
-title: "Lesson 1: Gapminder"
+title: "Humans Learning"
+subtitle: "Lesson 1: Gapminder"
 date: "November 1, 2024"
 author: "Brian Calhoon"
+description: "Learning bursts on all things data via R"
+title-block-banner: "#CACACA"
 format: 
   html:
-    code-fold: true
+    code-fold: false
     code-summary: "Show the code"
     toc: true
+    css: prep/styles.css
 editor: visual
 filters: 
   - webr
-theme:
-  -prep/styles.css
+
 ---
+
+::: box
+::: box-header
+Overview
+:::
+
+::: box-container
+Some example text here
+:::
+:::
 
 # Install and load packages
 
-```{r eval = FALSE}
+```{r global_options, include=F, warning=F, message=F, error=F}
 source(here::here("prep/prep.R"))
 ```
 
-```{r eval = FALSE}
+```{r include=FALSE}
 # install.packages(c("tidyverse", "gapminder"))
 
 #load the libraries so you can use them
@@ -32,15 +45,17 @@ library(gapminder)
 
 # View the data
 
-```{r}
+```{r }
+
 #look at the gapminder dataset
-gapminder
+head(gapminder)
 
 #make gapminder an object
 df <- gapminder
 
 #read variable names
 names(df)
+
 ```
 
 # Make a plot
