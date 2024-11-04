@@ -10,18 +10,28 @@ format:
 editor: visual
 filters: 
   - webr
+theme:
+  -prep/styles.css
 ---
 
 # Install and load packages
-```{r}
+
+```{r eval = FALSE}
+source(here::here("prep/prep.R"))
+```
+
+```{r eval = FALSE}
 # install.packages(c("tidyverse", "gapminder"))
 
 #load the libraries so you can use them
 library(tidyverse)
 library(gapminder)
+
+
 ```
 
 # View the data
+
 ```{r}
 #look at the gapminder dataset
 gapminder
@@ -31,10 +41,10 @@ df <- gapminder
 
 #read variable names
 names(df)
-
 ```
 
 # Make a plot
+
 ```{r}
 #make a plot
 ggplot(data = df) +
@@ -58,7 +68,7 @@ plot +
   geom_smooth(aes(x = gdpPercap, y = lifeExp))
 ```
 
-# play around with customizing the plot
+## Play around with customizing the plot
 
 Now it's your turn practice! Below is a fully functioning code editor. Use the code above to start, and then try changing the variables or changing the type of chart from a scatter plot (`geom_point()`) to a line graph (`geom_line()`) or a bar graph (`geom_col()` or `geom_bar()`). 
 ```{webr-r}

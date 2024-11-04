@@ -1,0 +1,40 @@
+
+<style>
+/* CSS for h1 heading */
+h1 {
+  font-family: Corbel;
+  color: #00457C; 
+  font-weight: bold;
+  font-size: 26px;
+}
+
+
+h2 {
+  font-family: Corbel;
+  color: #89C266;
+  font-size: 20px;
+}
+
+h3 {
+  font-family: Corbel;
+  color: #FF7C48;
+  font-size: 18px;
+}
+
+h4 {
+  font-family: Corbel;
+  color: #674C7E
+  font-size: 14
+}  
+
+
+</style>
+
+#/* body font, size, and color */
+/* CSS code */
+body {
+    background-color: #f2f2f2; /* Light grey background */
+    font-family: Corbel, sans-serif; /* Sets the font to Corbel */
+    font-size: 12px; /* Sets the font size to 12 pixels */
+    color: #333; /* Optional: sets a dark grey font color */
+}
