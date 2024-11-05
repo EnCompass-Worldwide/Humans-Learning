@@ -44,8 +44,8 @@ body {
 
 .box {
   margin: 1em ;
-  border: 2px solid #009CA6;
-  border-left: 10px solid #009CA6; 
+  border: 2px solid #47A1E7;
+  border-left: 10px solid #47A1E7; 
   border-radius: 10px;
 }
 
@@ -56,7 +56,7 @@ body {
   padding-bottom: 5px;
   color: white;
   text-indent: 0em;
-  background-color: #009CA6;
+  background-color: #47A1E7;
   border-top-right-radius: 10px;
   font-size: 1em;
   font-weight: bold;
@@ -68,7 +68,7 @@ body {
 .box-container {
   padding-top: 5px;
   padding-left: 10px;
-  color: #133469;
+  color: #00457C ;
   background-color: white;
   border-bottom-right-radius: 10px;
 }
@@ -81,6 +81,6 @@ body {
   padding-left: 10px;
   background-origin: content-box;
   font-family: Corbel;
-  color: #133469;
+  color: #00457C ;
     font-size: 32;
 }

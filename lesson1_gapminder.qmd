@@ -3,7 +3,7 @@ title: "Humans Learning"
 subtitle: "Lesson 1: Gapminder"
 date: "November 1, 2024"
 author: "Brian Calhoon"
-description: "Learning bursts on all things data via R"
+description: "Huamans learning together"
 title-block-banner: "#CACACA"
 format: 
   html:
@@ -21,16 +21,16 @@ filters:
 source(here::here("prep/prep.R"))
 ```
 
-::: {#fig logo layout-ncol = 2} 
+::: {layout="[[1,2]]" fig-align="left"} 
 
-![humans learning](prep/humanslearning.png)
-:::
+![](prep/humanslearning.png){width=25%}
+
 
 ::: box
 ::: box-header
 Learning objectives
 
-`r fontawesome::fa("earlybirds", fill = "#FFB947")` Text here
+`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "2em", width = "2em")` Text here
 
 `r fontawesome::fa("earlybirds", fill = "#FFB947")`
 :::
@@ -39,7 +39,7 @@ Learning objectives
 Some example text here
 :::
 :::
-
+:::
 # Install and load packages
 
 
