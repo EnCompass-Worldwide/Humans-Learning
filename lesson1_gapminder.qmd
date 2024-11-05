@@ -17,9 +17,22 @@ filters:
 
 ---
 
+```{r global_options, include=F, warning=F, message=F, error=F}
+source(here::here("prep/prep.R"))
+```
+
+::: {#fig logo layout-ncol = 2} 
+
+![humans learning](prep/humanslearning.png)
+:::
+
 ::: box
 ::: box-header
-Overview
+Learning objectives
+
+`r fontawesome::fa("earlybirds", fill = "#FFB947")` Text here
+
+`r fontawesome::fa("earlybirds", fill = "#FFB947")`
 :::
 
 ::: box-container
@@ -29,9 +42,6 @@ Some example text here
 
 # Install and load packages
 
-```{r global_options, include=F, warning=F, message=F, error=F}
-source(here::here("prep/prep.R"))
-```
 
 ```{r include=FALSE}
 # install.packages(c("tidyverse", "gapminder"))

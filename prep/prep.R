@@ -1,5 +1,5 @@
 packages <- c("bookdown", "cowplot", "extrafont"
-              , "extrafontdb", "gapminder"
+              , "extrafontdb", "fontawesome", "gapminder"
               , "ggraph", "lubridate", "patchwork"
               , "readxl", "tidyverse")
 

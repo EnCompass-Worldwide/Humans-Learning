@@ -5,7 +5,7 @@
 h1 {
   font-family: Corbel;
   color: #00457C; 
-  font-weight: bold;
+  /*font-weight: bold;*/
   font-size: 26px;
 }
 
@@ -34,7 +34,7 @@ h4 {
 /* body font, size, and color */
 /* CSS code */
 body {
-    background-color: #f2f2f2; /* Light grey background */
+    /*background-color: #f2f2f2; /* Light grey background */
     font-family: Corbel, sans-serif; /* Sets the font to Corbel */
     font-size: 12px; /* Sets the font size to 12 pixels */
     color: #333; /* Optional: sets a dark grey font color */
