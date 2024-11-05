@@ -1,43 +1,42 @@
-
-</style>
 /* CSS for heading styles */
 
 h1 {
-  font-family: Corbel;
+  font-family: Corbel, sans-serif;
   color: #00457C; 
-  /*font-weight: bold;*/
   font-size: 26px;
 }
 
 
 h2 {
-  font-family: Corbel;
+  font-family: Corbel, sans-serif;
   color: #89C266;
   font-size: 20px;
 }
 
 h3 {
-  font-family: Corbel;
+  font-family: Corbel, sans-serif;
   color: #FF7C48;
   font-size: 18px;
 }
 
 h4 {
-  font-family: Corbel;
+  font-family: Corbel, sans-serif;
   color: #674C7E
   font-size: 14
 }  
 
-
-</style>
-
 /* body font, size, and color */
 /* CSS code */
 body {
-    /*background-color: #f2f2f2; /* Light grey background */
+    background-color: #fafafa; /* Light grey background */
     font-family: Corbel, sans-serif; /* Sets the font to Corbel */
-    font-size: 12px; /* Sets the font size to 12 pixels */
+    font-size: 14px; /* Sets the font size to 12 pixels */
     color: #333; /* Optional: sets a dark grey font color */
+}
+
+.output {
+  color: green;
+  background-color: black;
 }
 
 </style>
@@ -60,7 +59,7 @@ body {
   border-top-right-radius: 10px;
   font-size: 1em;
   font-weight: bold;
-  background-size: 40px;
+  background-size: 80px;
   background-repeat: no-repeat;
   background-position: 15px center;
       }
@@ -74,13 +73,28 @@ body {
 }
 
 .quarto-title-block .quarto-title-banner {
-  background-image: url(../viz/logo.png);
+ background-image: url(../prep/encompass-logo-blue.png); 
   background-size: 120px;
   background-position: left;
   background-repeat: no-repeat;
-  padding-left: 10px;
-  background-origin: content-box;
-  font-family: Corbel;
-  color: #00457C ;
-    font-size: 32;
+  padding-left: 25px;
+  background-origin: content-box; 
+  /*font-family: Corbel;
+  color: #FF7C48;
+  font-weight: bold;
+  font-size: 32px; */
+} 
+
+subtitle {
+  font-family: Corbel, sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 42px;
+}
+
+title {
+  font-family: Corbel, sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 48px;
 }

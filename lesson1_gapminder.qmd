@@ -1,10 +1,9 @@
 ---
 title: "Humans Learning"
-subtitle: "Lesson 1: Gapminder"
+subtitle: "Lesson 1: Getting started with Gapminder"
 date: "November 1, 2024"
 author: "Brian Calhoon"
-description: "Huamans learning together"
-title-block-banner: "#CACACA"
+title-block-banner: "#C9C9C9"
 format: 
   html:
     code-fold: false
@@ -21,25 +20,38 @@ filters:
 source(here::here("prep/prep.R"))
 ```
 
-::: {layout="[[1,2]]" fig-align="left"} 
+:::: {.columns} 
 
-![](prep/humanslearning.png){width=25%}
+::: {.column width="20%"}
+![](prep/humanslearning.png)
 
+:::
+
+::: {.column width="80%"}
 
 ::: box
+
 ::: box-header
 Learning objectives
 
-`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "2em", width = "2em")` Text here
+`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "2em", width = "3em")` Install packages and load libraries
 
-`r fontawesome::fa("earlybirds", fill = "#FFB947")`
+`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "2em", width = "3em")` Make your first plot
+
+`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "2em", width = "3em")` Have fun
+
 :::
+
+:::
+
+:::
+
+::::
 
 ::: box-container
 Some example text here
 :::
-:::
-:::
+
 # Install and load packages
 
 
@@ -55,7 +67,7 @@ library(gapminder)
 
 # View the data
 
-```{r }
+```{r data, class-output: output}
 
 #look at the gapminder dataset
 head(gapminder)
@@ -70,7 +82,8 @@ names(df)
 
 # Make a plot
 
-```{r}
+```{r plot, class-output: output}
+
 #make a plot
 ggplot(data = df) +
   geom_point(aes(x = gdpPercap, y = lifeExp, color = continent)
