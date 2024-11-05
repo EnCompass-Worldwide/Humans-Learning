@@ -33,12 +33,16 @@ source(here::here("prep/prep.R"))
 
 ::: box-header
 Learning objectives
-
 `r fontawesome::fa("earlybirds", fill = "#FFB947", height = "2em", width = "3em")` Install packages and load libraries
 
 `r fontawesome::fa("earlybirds", fill = "#FFB947", height = "2em", width = "3em")` Make your first plot
 
 `r fontawesome::fa("earlybirds", fill = "#FFB947", height = "2em", width = "3em")` Have fun
+
+::: box-container
+
+
+:::
 
 :::
 
@@ -48,9 +52,6 @@ Learning objectives
 
 ::::
 
-::: box-container
-Some example text here
-:::
 
 # Install and load packages
 

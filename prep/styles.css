@@ -34,7 +34,7 @@ body {
     color: #333; /* Optional: sets a dark grey font color */
 }
 
-.output {
+.pre {
   color: green;
   background-color: black;
 }
@@ -59,7 +59,7 @@ body {
   border-top-right-radius: 10px;
   font-size: 1em;
   font-weight: bold;
-  background-size: 80px;
+  background-size: 30px;
   background-repeat: no-repeat;
   background-position: 15px center;
       }
