@@ -1,6 +1,6 @@
 ---
 title: "Humans Learning"
-subtitle: "Lesson 1: Getting started with Gapminder"
+subtitle: "Lesson 1: Getting started in R with Gapminder"
 date: "November 1, 2024"
 author: "Brian Calhoon"
 title-block-banner: "#C9C9C9"
@@ -13,48 +13,37 @@ format:
 editor: visual
 filters: 
   - webr
-
 ---
 
 ```{r global_options, include=F, warning=F, message=F, error=F}
 source(here::here("prep/prep.R"))
 ```
 
-:::: {.columns} 
+Welcome to the first iteration of this tiny learning space. These are designed for 5 - 10 minute virtual sessions conducted for EnCompass staff to expand their skills with data, and the means is the R programming language. Each lesson will have learning objectives, some example code and explanation to demonstrate a technique or skill, and an open code chunk at the end for you to have some fun. Enjoy!
 
+:::::::: columns
 ::: {.column width="20%"}
 ![](prep/humanslearning.png)
-
 :::
 
-::: {.column width="80%"}
-
-::: box
-
-::: box-header
-Learning objectives
-`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "2em", width = "3em")` Install packages and load libraries
-
-`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "2em", width = "3em")` Make your first plot
-
-`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "2em", width = "3em")` Have fun
+:::::: {.column width="80%"}
+::::: box
+:::: box-header
+Learning objectives 
 
 ::: box-container
+`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "3em", width = "3em")` Install packages and load libraries
 
+`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "3em", width = "3em")` Make your first plot
 
+`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "3em", width = "3em")` Have fun
 :::
-
-:::
-
-:::
-
-:::
-
 ::::
-
+:::::
+::::::
+::::::::
 
 # Install and load packages
-
 
 ```{r include=FALSE}
 # install.packages(c("tidyverse", "gapminder"))
@@ -68,8 +57,9 @@ library(gapminder)
 
 # View the data
 
-```{r data, class-output: output}
 
+```{r data}
+#| class-output: pre
 #look at the gapminder dataset
 head(gapminder)
 
@@ -83,7 +73,8 @@ names(df)
 
 # Make a plot
 
-```{r plot, class-output: output}
+```{r plot}
+#| class-output: pre
 
 #make a plot
 ggplot(data = df) +
@@ -109,7 +100,8 @@ plot +
 
 ## Play around with customizing the plot
 
-Now it's your turn practice! Below is a fully functioning code editor. Use the code above to start, and then try changing the variables or changing the type of chart from a scatter plot (`geom_point()`) to a line graph (`geom_line()`) or a bar graph (`geom_col()` or `geom_bar()`). 
+Now it's your turn practice! Below is a fully functioning code editor. Use the code above to start, and then try changing the variables or changing the type of chart from a scatter plot (`geom_point()`) to a line graph (`geom_line()`) or a bar graph (`geom_col()` or `geom_bar()`).
+
 ```{webr-r}
 library(ggplot2)
 library(gapminder)

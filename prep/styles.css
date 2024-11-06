@@ -67,8 +67,8 @@ body {
 .box-container {
   padding-top: 5px;
   padding-left: 10px;
-  color: #00457C ;
-  background-color: white;
+  color: white ;
+  background-color: #47A1E7;
   border-bottom-right-radius: 10px;
 }
 
@@ -87,14 +87,14 @@ body {
 
 subtitle {
   font-family: Corbel, sans-serif;
-  font-weight: bold;
+  /* font-weight: bold; */
   color: white;
-  font-size: 42px;
+  font-size: 48px;
 }
 
 title {
   font-family: Corbel, sans-serif;
-  font-weight: bold;
+  /*font-weight: bold;*/
   color: white;
-  font-size: 48px;
+  font-size: 56px;
 }
