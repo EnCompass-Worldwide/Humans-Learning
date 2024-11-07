@@ -19,31 +19,39 @@ filters:
 source(here::here("prep/prep.R"))
 ```
 
-Welcome to the first iteration of this tiny learning space. These are designed for 5 - 10 minute virtual sessions conducted for EnCompass staff to expand their skills with data, and the means is the R programming language. Each lesson will have learning objectives, some example code and explanation to demonstrate a technique or skill, and an open code chunk at the end for you to have some fun. Enjoy!
+# Why am I here?
+
+`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "3em", width = "2em")`
 
 :::::::: columns
 ::: {.column width="20%"}
-![](prep/humanslearning.png)
+
+::: box-header
+![](prep/humanslearning.png){fig-pos="b"}
+:::
+
 :::
 
 :::::: {.column width="80%"}
 ::::: box
 :::: box-header
-Learning objectives 
+We are all just humans learning!
 
-::: box-container
-`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "3em", width = "3em")` Install packages and load libraries
+Welcome to the first iteration of the Humans Learning lessons. Each lesson is designed for a 5 - 10 minute virtual session conducted for EnCompass staff to expand their skills with data, and the means of learning is the R programming language. Each lesson will have learning objectives, some example code and explanation to demonstrate a technique or skill, and an open code chunk at the end for you to have some fun. This is all in the service of ensuring that we are all humans learning. Enjoy!
 
-`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "3em", width = "3em")` Make your first plot
-
-`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "3em", width = "3em")` Have fun
 :::
 ::::
-:::::
-::::::
-::::::::
 
-# Install and load packages
+::::
+:::::
+
+# Learning objectives
+
+* Install and load packages in your RStudio console
+
+* Make your first plot
+
+## Install and load packages
 
 ```{r include=FALSE}
 # install.packages(c("tidyverse", "gapminder"))
@@ -55,7 +63,7 @@ library(gapminder)
 
 ```
 
-# View the data
+## View the data
 
 
 ```{r data}
@@ -71,7 +79,7 @@ names(df)
 
 ```
 
-# Make a plot
+## Make a plot
 
 ```{r plot}
 #| class-output: pre
@@ -88,6 +96,9 @@ plot <- ggplot(data = df) +
 ```
 
 ```{r}
+
+#| class-output: pre
+
 #use the object to add more things to the plot
 plot +  
   
@@ -98,7 +109,7 @@ plot +
   geom_smooth(aes(x = gdpPercap, y = lifeExp))
 ```
 
-## Play around with customizing the plot
+## Have fun!
 
 Now it's your turn practice! Below is a fully functioning code editor. Use the code above to start, and then try changing the variables or changing the type of chart from a scatter plot (`geom_point()`) to a line graph (`geom_line()`) or a bar graph (`geom_col()` or `geom_bar()`).
 

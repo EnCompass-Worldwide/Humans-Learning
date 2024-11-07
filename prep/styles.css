@@ -35,8 +35,10 @@ body {
 }
 
 .pre {
-  color: green;
+  color: #FF7C48;
   background-color: black;
+  font-family: Corbel;
+  font-size: 14px;
 }
 
 </style>
@@ -46,7 +48,7 @@ body {
   border: 2px solid #47A1E7;
   border-left: 10px solid #47A1E7; 
   border-radius: 10px;
-}
+  }
 
 .box-header {
   margin-left: 0em;
@@ -56,10 +58,11 @@ body {
   color: white;
   text-indent: 0em;
   background-color: #47A1E7;
-  border-top-right-radius: 10px;
+  /*border-top-right-radius: 10px; */
   font-size: 1em;
   font-weight: bold;
   background-size: 30px;
+  min-height: 175px;
   background-repeat: no-repeat;
   background-position: 15px center;
       }
