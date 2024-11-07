@@ -19,15 +19,15 @@ filters:
 source(here::here("prep/prep.R"))
 ```
 
-# Why am I here?
+# Why am I here? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   `r fontawesome::fa("earlybirds", fill = "#FFB947", height = "3em", width = "2em")`
 
-`r fontawesome::fa("earlybirds", fill = "#FFB947", height = "3em", width = "2em")`
+
 
 :::::::: columns
 ::: {.column width="20%"}
 
 ::: box-header
-![](prep/humanslearning.png){fig-pos="b"}
+![](prep/humanslearning.png)
 :::
 
 :::
@@ -35,9 +35,8 @@ source(here::here("prep/prep.R"))
 :::::: {.column width="80%"}
 ::::: box
 :::: box-header
-We are all just humans learning!
 
-Welcome to the first iteration of the Humans Learning lessons. Each lesson is designed for a 5 - 10 minute virtual session conducted for EnCompass staff to expand their skills with data, and the means of learning is the R programming language. Each lesson will have learning objectives, some example code and explanation to demonstrate a technique or skill, and an open code chunk at the end for you to have some fun. This is all in the service of ensuring that we are all humans learning. Enjoy!
+Welcome to the first iteration of the Humans Learning lessons. Each lesson is designed as a 5 - 10 minute virtual session conducted for EnCompass staff to expand their skills with data, and the means of learning is the R programming language. Each lesson will have learning objectives, some example code and explanation to demonstrate a technique or skill, and an open code chunk at the end for you to have some fun. Each lesson is captured in an html file for online access. This is all in the service of humans learning. Enjoy!
 
 :::
 ::::
@@ -45,9 +44,10 @@ Welcome to the first iteration of the Humans Learning lessons. Each lesson is de
 ::::
 :::::
 
-# Learning objectives
+# Learning objectives 
+For this first course, the learning objectives are to: 
 
-* Install and load packages in your RStudio console
+* Install and load the `tidyverse` and `gapminder` packages in your RStudio console
 
 * Make your first plot
 
@@ -95,7 +95,7 @@ plot <- ggplot(data = df) +
              , alpha = .4) 
 ```
 
-```{r}
+```{r plot more}
 
 #| class-output: pre
 
