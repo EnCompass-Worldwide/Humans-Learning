@@ -115,8 +115,36 @@ loughran_sents
 ```{r}
 
 ggplot(bing_sents) +
-  geom_density(aes(score)) +
-  geom_density(data = loughran_sents, aes(score))
+  geom_density(aes(score), color = "blue") +
+  geom_density(data = loughran_sents, aes(score), color = "orange")
 
+
+```
+
+```{r}
+
+ollamar::pull("llama3.2")
+
+llama_sents <- df |>
+  dplyr::select(text_response) |> 
+  dplyr::mutate(respondent = row_number()) |> 
+  mall::llm_sentiment(text_response) |> 
+  dplyr::mutate(value = case_when(.sentiment == "positive" ~ 1
+                               , .sentiment == "negative" ~ -1)) |> 
+  dplyr::group_by(respondent) |> 
+  dplyr::summarize(score = mean(value))
+
+```
+
+```{r}
+
+
+ggplot(llama_sents) +
+  geom_density(aes(score), color = "red", lwd = 2)
+
+ggplot(bing_sents) +
+  geom_density(aes(score), color = "blue", lwd = 2, alpha = .6) +
+  geom_density(data = loughran_sents, aes(score), color = "orange", lwd = 2, alpha = .6) +
+  geom_density(data = llama_sents, aes(score), color = "red", lwd = 2, alpha = .6)
 
 ```
