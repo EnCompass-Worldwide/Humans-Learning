@@ -1,0 +1,46 @@
+---
+title: "Sentiment Analysis: Llama Llama"
+subtitle: Comparing Llama with the Bing lexicon"
+date: November 8, 2024
+author: "Brian Calhoon"
+title-block-banner: "#C9C9C9"
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+    toc: true
+    css: ../prep/styles.css
+editor: visual
+---
+
+```{r global_options, include=F, warning=F, message=F, error=F}
+source(here::here("prep/prep.R"))
+```
+
+# Why am I here?        `r fontawesome::fa("earlybirds", fill = "#FFB947", height = '2em', width = '2em')`
+
+::::::: columns
+:::: {.column width="20%"}
+::: box-header
+![](../prep/humanslearning.png)
+:::
+::::
+
+:::: {.column width="80%"}
+::: box
+::: box-header {text-align: center} 
+
+It might be because you are curious about sentiment analysis. This lesson will take an example dataframe that has a text field and compare the ability of Meta's LLama 3.2 and the Bing lexicon at identifying positive and negative sentiments from short responses. This draws on the great work of Julia Silge and David Robinson [Text Mining with R](www.tidytextmining.com) for the lexicon-based sentiment analysis. For the Llama part of the analysis, the `ollama` and `mall` R packages do the heavy lifting with `mall` providing the tidy functions that are used to interact with the data. Thanks for learning with me today. Enjoy!
+:::
+::::
+:::::::
+
+
+
+# Learning objectives
+
+The learning objectives in this lesson are to:
+
+-   Run the Llama large-language model (LLM) locally
+
+-   Use it to interact with a dataset
