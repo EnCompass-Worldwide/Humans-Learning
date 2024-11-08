@@ -20,7 +20,6 @@ source(here::here("prep/prep.R"))
 library(ollamar)
 library(mall)
 library(remotes)
-install_github("juliasilge/tidytext")
 library(textdata)
 
 
@@ -37,7 +36,7 @@ library(textdata)
 
 :::: {.column width="80%"}
 ::: box
-::: box-header {text-align: center} 
+::: box-header 
 
 It might be because you are curious about sentiment analysis. This lesson will take an example dataframe that has a text field and compare the ability of Meta's LLama 3.2,  bing's lexicon, and Loughran-McDonald's lexicon at identifying positive and negative sentiments from short responses. This draws on the great work of Julia Silge and David Robinson [Text Mining with R](www.tidytextmining.com) for the lexicon-based sentiment analysis. For the Llama part of the analysis, the `ollama` and `mall` R packages do the heavy lifting with `mall` providing the tidy functions that are used to interact with the data. Thanks for learning with me today. Enjoy!
 :::
@@ -52,4 +51,72 @@ The learning objectives in this lesson are to:
 
 -   Run the Llama large-language model (LLM) locally
 
--   Conduct a simple sentiment analysis using Llama and Bing
+-   Conduct a simple sentiment analysis using Llama, bing, and Loughran-McDonald
+
+
+## A dataset
+
+Here's a dataset that we can use. You can explore it here. For our purposes we're mainly interested in the column `text_response`.
+
+```{r}
+library(reactable)
+df <- readxl::read_xlsx("C:/Users/Brian Calhoon/Documents/Shiny-sandbox/data/testdata2.xlsx")
+
+DT::datatable(df, class = 'cell-border stripe', option = list(pageLength = 5), filter = "top")
+
+
+```
+
+## Sentiment analysis with bing and Loughran-McDonald
+
+
+```{r}
+
+bing <- tidytext::get_sentiments(lexicon = "bing")
+
+loughran <- textdata::lexicon_loughran()
+
+```
+
+Sentiment lexicons are basically lists of words that have been coded with a sentiment value. The bing lexicon has `r nrow(bing)` words and the Loughran-McDonald has `r nrow(loughran)` words. 
+
+The next step is to tokenize the words in the text column and join the two datasets.
+
+
+```{r}
+
+bing_sents <- df |>
+  dplyr::select(text_response) |> 
+  dplyr::mutate(respondent = row_number()) |> 
+  tidytext::unnest_tokens(word, text_response) |> 
+  dplyr::inner_join(bing) |> 
+  dplyr::mutate(value = case_when(sentiment == "positive" ~ 1
+                               , sentiment == "negative" ~ -1)) |> 
+      dplyr::group_by(respondent) |> 
+      dplyr::summarize(score = mean(value))
+
+bing_sents
+
+loughran_sents <- df |>
+  dplyr::select(text_response) |> 
+  dplyr::mutate(respondent = row_number()) |> 
+  tidytext::unnest_tokens(word, text_response) |> 
+  dplyr::inner_join(loughran) |> 
+  dplyr::mutate(value = case_when(sentiment == "positive" ~ 1
+                               , sentiment == "negative" ~ -1)) |> 
+      dplyr::group_by(respondent) |> 
+      dplyr::summarize(score = mean(value))
+
+loughran_sents
+```
+
+## Visualizing the output
+
+```{r}
+
+ggplot(bing_sents) +
+  geom_density(aes(score)) +
+  geom_density(data = loughran_sents, aes(score))
+
+
+```
