@@ -21,6 +21,7 @@ library(ollamar)
 library(mall)
 library(remotes)
 library(textdata)
+library(tidytext)
 
 
 ```
@@ -59,7 +60,6 @@ The learning objectives in this lesson are to:
 Here's a dataset that we can use. You can explore it here. For our purposes we're mainly interested in the column `text_response`.
 
 ```{r}
-library(reactable)
 df <- readxl::read_xlsx("C:/Users/Brian Calhoon/Documents/Shiny-sandbox/data/testdata2.xlsx")
 
 DT::datatable(df, class = 'cell-border stripe', option = list(pageLength = 5), filter = "top")
