@@ -53,18 +53,14 @@ It might be because you are curious about sentiment analysis. This lesson will t
 
 
 
-# Learning objectives
+# Comparing the different approaches to sentiment analysis
 
-The learning objectives in this lesson are to:
-
--   Run the Llama large-language model (LLM) locally
-
--   Conduct a simple sentiment analysis using Llama, bing, and Loughran-McDonald
+I am curious to test this out for a few reasons. First, I find sentiments an interesting way to categorize qualitative data. Second, I like the idea of running a large language model (LLM) locally. Third, this is an open-source large language model so the costs are minimal. Fourth, I have been curious how lexicon-based sentiment analysis compares to what an LLM can do. So, let's dive in. 
 
 
 ## A dataset
 
-Here's a dataset that we can use. You can explore it here. For our purposes we're mainly interested in the column `text_response`.
+Here's a dataset that we can use. You can explore it in the table below. For our purposes we're mainly interested in the column `text_response`.
 
 ```{r}
 df <- readxl::read_xlsx("C:/Users/Brian Calhoon/Documents/Shiny-sandbox/data/testdata2.xlsx")
@@ -77,7 +73,7 @@ DT::datatable(df, class = 'cell-border stripe', option = list(pageLength = 5), f
 ## Sentiment analysis with bing and Loughran-McDonald
 
 
-```{r message = F, warning = F}
+```{r message = F, warning = F, include = F}
 
 bing <- tidytext::get_sentiments(lexicon = "bing")
 loughran <- textdata::lexicon_loughran()
@@ -90,6 +86,7 @@ Sentiment lexicons are basically lists of words that have been coded with a sent
 
 ```{r}
 
+# data wrangling to get the bing sentiments object
 bing_sents <- df |>
   dplyr::select(text_response) |> 
   dplyr::mutate(respondent = row_number()) |> 
@@ -100,7 +97,7 @@ bing_sents <- df |>
       dplyr::group_by(respondent) |> 
       dplyr::summarize(score = mean(value))
 
-
+# data wrangling to get the Loughran-McDonald sentiments object
 loughran_sents <- df |>
   dplyr::select(text_response) |> 
   dplyr::mutate(respondent = row_number()) |> 
@@ -131,27 +128,33 @@ llama_sents <- df |>
 
 ```
 
-## Visualizing the output
+## Comparing the outputs
 
-A density plot 
+To interpret the density plots for each model think of each point on the line representing that proportion of respondents (see the vertical axis). The Llama LLM identifies approximately a .58 proportion of respondents as being negative. This is more negative than the other two models, and in looking at the data, it appears to be more accurate as well.  
 
 ```{r}
 
 
-markdown_text <- ggtext::element_markdown("The <span style = 'color:#00457C;'> <b>bing<b></span> and <span style = 'color:#89C266;'> <b> Loughran-McDonald <b> </span> sentiment lexicons <br> miss the nuance of the language that the <span style = 'color:#FF7C48;'><b>Llama<b></span> <br> sentiment analysis captures.")
+markdown_text <- ggtext::element_markdown("The <span style = 'color:#00457C'> <b>bing<b></span> and <span style = 'color:#89C266;'> <b> Loughran-McDonald <b> </span> sentiment lexicons <br> miss the nuance of the language that the <span style = 'color:#FF7C48;'><b>Llama<b></span> <br> sentiment analysis captures.")
 
 ggplot(bing_sents) +
+  geom_vline(xintercept = 0, lwd = 2, color = "#7F7F7F", alpha = .3)+
   geom_density(aes(score), color = "#00457C", lwd = 1.5) +
   geom_density(data = loughran_sents, aes(score), color = "#89C266", lwd = 1.5) +
   geom_density(data = llama_sents, aes(value), color = "#FF7C48", lwd = 1.5) +
+  geom_text(aes(x = .25, y = .5, label = "Neutral"), color = "#7F7F7F", vjust = .25, alpha = .3) +
+  geom_segment(aes(x = .03, xend = .16, y = .45, yend = .49), color = "#7F7F7F", alpha = .3)+
   theme_minimal()+
   labs(title = "Comparison of sentiments with different methods", 
     subtitle = markdown_text,
     y = "Propotion of responses",
-    x = "More negative | More positive") +
-  theme(plot.title = element_text(size = 20, face = "bold"), 
-    plot.subtitle = element_markdown(size = 16),
+    x = "More negative           |           More positive") +
+  theme(plot.title = element_text(size = 20, face = "bold", family = "Corbel"), 
+    plot.subtitle = element_markdown(size = 16, family = "Corbel"),
     plot.title.position = "plot")
+    #, axis.title.x = ggtext::element_markdown()
+    #, axis.title.y = ggtext::element_markdown()
+    #, axis.text.x = element_blank())
 
 
 #fill = "#89C266"
