@@ -10,6 +10,10 @@ format:
     code-summary: "Show the code"
     toc: true
     css: ./styles.css
+execute: 
+  warning: false
+  message: false
+  error: false
 editor: visual
 
 ---
@@ -73,28 +77,15 @@ DT::datatable(df, class = 'cell-border stripe', option = list(pageLength = 5), f
 ## Sentiment analysis with bing and Loughran-McDonald
 
 
-::: {.panel-tabset}
-
-## bing
-```{r}
+```{r message = F, warning = F}
 
 bing <- tidytext::get_sentiments(lexicon = "bing")
-
-DT::datatable(bing, class = 'cell-border stripe', option = list(pageLength = 5))
-```
-
-## Loughran-McDonald
-```{r}
 loughran <- textdata::lexicon_loughran()
 
-DT::datatable(loughran, class = 'cell-border stripe', option = list(pageLength = 5))
 
 ```
-:::
 
-Sentiment lexicons are basically lists of words that have been coded with a sentiment value. The bing lexicon has `r nrow(bing)` words and the Loughran-McDonald has `r nrow(loughran)` words. 
-
-The next step is to tokenize the words in the text column and join the two datasets.
+Sentiment lexicons are basically lists of words that have been coded with a sentiment value (positive, negative, or a number score). The bing lexicon has `r nrow(bing)` words and the Loughran-McDonald has `r nrow(loughran)` words. We can tokenize and identify the sentiment words and then quantify all positive words as 1 and negative words as -1 before computing an average sentiment score for each respondent.
 
 
 ```{r}
@@ -109,7 +100,6 @@ bing_sents <- df |>
       dplyr::group_by(respondent) |> 
       dplyr::summarize(score = mean(value))
 
-bing_sents
 
 loughran_sents <- df |>
   dplyr::select(text_response) |> 
@@ -121,21 +111,12 @@ loughran_sents <- df |>
       dplyr::group_by(respondent) |> 
       dplyr::summarize(score = mean(value))
 
-loughran_sents
 ```
+:::
 
-## Visualizing the output
+Then, we do a similar process using Llama, but we don't have to take an average score because the LLM provides its own rating of positive, negative, or neutral for each respondent. 
 
-```{r}
-
-ggplot(bing_sents) +
-  geom_density(aes(score), color = "blue", lwd = 2, alpha = .4) +
-  geom_density(data = loughran_sents, aes(score), color = "orange", lwd = 2, alpha = .4)
-
-
-```
-
-```{r}
+```{r message = F, warning = F}
 
 
 mall::llm_use("ollama", "llama3.2", seed = 100, .cache = "_readme_cache")
@@ -150,15 +131,30 @@ llama_sents <- df |>
 
 ```
 
+## Visualizing the output
+
+A density plot 
+
 ```{r}
 
 
 #ggplot(llama_sents) +
 #  geom_density(aes(score), color = "red", lwd = 2)
 
-ggplot(bing_sents) +
-  geom_density(aes(score), color = "blue", lwd = 2, alpha = .6) +
-  geom_density(data = loughran_sents, aes(score), color = "orange", lwd = 2, alpha = .6) +
-  geom_density(data = llama_sents, aes(value), color = "red", lwd = 2, alpha = .6)
+markdown_text <- ggtext::element_markdown("The <span style = 'color:#00457C;'>bing</span> 
+                                          and Loughran-McDonald sentiment lexicons provide a much more positive take on the sentiments than the Llama sentiment analysis.")
 
+ggplot(bing_sents) +
+  geom_density(aes(score), color = "#00457C", alpha = .3) +
+  geom_density(data = loughran_sents, aes(score), color = "#89C266", alpha = .3) +
+  geom_density(data = llama_sents, aes(value), color = "#FF7C48", alpha = .3) +
+  theme_minimal()+
+  labs(title = "Comparison of sentiments with different methods", 
+    subtitle = ggtext::element_markdown("The <span style = 'color:blue;'>bing</span> <span style = 'color:#0072B2;'>automatic</span> "),
+    y = "Propotion of responses",
+    x = "More negative | More positive")
+
+
+#fill = "#89C266"
+#fill = "#FF7C48"
 ```
