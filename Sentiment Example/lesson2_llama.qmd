@@ -4,13 +4,14 @@ subtitle: Comparing Llama with the Bing lexicon"
 date: November 8, 2024
 author: "Brian Calhoon"
 title-block-banner: "#C9C9C9"
-format: 
+format:
   html:
     code-fold: true
     code-summary: "Show the code"
     toc: true
-    css: ../prep/styles.css
+    css: ./Sentiment Example/styles.css
 editor: visual
+
 ---
 
 ```{r global_options, include=F, warning=F, message=F, error=F}
@@ -31,7 +32,7 @@ library(tidytext)
 ::::::: columns
 :::: {.column width="20%"}
 ::: box-header
-![](../prep/humanslearning.png)
+![](./humanslearning.png)
 :::
 ::::
 
@@ -115,36 +116,36 @@ loughran_sents
 ```{r}
 
 ggplot(bing_sents) +
-  geom_density(aes(score), color = "blue") +
-  geom_density(data = loughran_sents, aes(score), color = "orange")
+  geom_density(aes(score), color = "blue", lwd = 2, alpha = .4) +
+  geom_density(data = loughran_sents, aes(score), color = "orange", lwd = 2, alpha = .4)
 
 
 ```
 
 ```{r}
 
-ollamar::pull("llama3.2")
+
+mall::llm_use("ollama", "llama3.2", seed = 100, .cache = "_readme_cache")
 
 llama_sents <- df |>
   dplyr::select(text_response) |> 
   dplyr::mutate(respondent = row_number()) |> 
-  mall::llm_sentiment(text_response) |> 
+  mall::llm_sentiment(col = text_response, options = c("positive",  "negative", "neutral")) |> 
   dplyr::mutate(value = case_when(.sentiment == "positive" ~ 1
-                               , .sentiment == "negative" ~ -1)) |> 
-  dplyr::group_by(respondent) |> 
-  dplyr::summarize(score = mean(value))
+                               , .sentiment == "negative" ~ -1
+                               , .sentiment == "neutral" ~ 0)) 
 
 ```
 
 ```{r}
 
 
-ggplot(llama_sents) +
-  geom_density(aes(score), color = "red", lwd = 2)
+#ggplot(llama_sents) +
+#  geom_density(aes(score), color = "red", lwd = 2)
 
 ggplot(bing_sents) +
   geom_density(aes(score), color = "blue", lwd = 2, alpha = .6) +
   geom_density(data = loughran_sents, aes(score), color = "orange", lwd = 2, alpha = .6) +
-  geom_density(data = llama_sents, aes(score), color = "red", lwd = 2, alpha = .6)
+  geom_density(data = llama_sents, aes(value), color = "red", lwd = 2, alpha = .6)
 
 ```
