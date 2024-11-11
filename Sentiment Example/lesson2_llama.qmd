@@ -135,7 +135,7 @@ To interpret the density plots for each model think of each point on the line re
 ```{r}
 
 
-markdown_text <- ggtext::element_markdown("The <span style = 'color:#00457C'> <b>bing<b></span> and <span style = 'color:#89C266;'> <b> Loughran-McDonald <b> </span> sentiment lexicons <br> miss the nuance of the language that the <span style = 'color:#FF7C48;'><b>Llama<b></span> <br> sentiment analysis captures.")
+markdown_text <- "The <span style = 'color:#00457C'><b>bing<b></span> and <span style = 'color:#89C266;'><b>Loughran-McDonald<b></span> sentiment lexicons <br> miss the nuance of the language that the <span style = 'color:#FF7C48;'><b>Llama<b></span> <br> sentiment analysis captures."
 
 ggplot(bing_sents) +
   geom_vline(xintercept = 0, lwd = 2, color = "#7F7F7F", alpha = .3)+
@@ -148,15 +148,11 @@ ggplot(bing_sents) +
   labs(title = "Comparison of sentiments with different methods", 
     subtitle = markdown_text,
     y = "Propotion of responses",
-    x = "More negative           |           More positive") +
+    x = "More negative                |                More positive") +
   theme(plot.title = element_text(size = 20, face = "bold", family = "Corbel"), 
     plot.subtitle = element_markdown(size = 16, family = "Corbel"),
-    plot.title.position = "plot")
-    #, axis.title.x = ggtext::element_markdown()
-    #, axis.title.y = ggtext::element_markdown()
-    #, axis.text.x = element_blank())
+    axis.title = element_text(family = "Corbel"),
+    plot.title.position = "plot"
+    , axis.text.x = element_blank())
 
-
-#fill = "#89C266"
-#fill = "#FF7C48"
 ```
