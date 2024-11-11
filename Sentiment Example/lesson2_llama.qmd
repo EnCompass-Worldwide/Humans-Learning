@@ -1,6 +1,6 @@
 ---
 title: "Sentiment Analysis: Llama Llama"
-subtitle: Comparing Llama with the Bing lexicon"
+subtitle: "Comparing Llama with the Bing lexicon"
 date: November 8, 2024
 author: "Brian Calhoon"
 title-block-banner: "#C9C9C9"
@@ -9,7 +9,7 @@ format:
     code-fold: true
     code-summary: "Show the code"
     toc: true
-    css: ./Sentiment Example/styles.css
+    css: ./styles.css
 editor: visual
 
 ---
@@ -26,6 +26,8 @@ library(tidytext)
 
 
 ```
+
+
 
 # Why am I here?        `r fontawesome::fa("earlybirds", fill = "#FFB947", height = '2em', width = '2em')`
 
@@ -71,13 +73,24 @@ DT::datatable(df, class = 'cell-border stripe', option = list(pageLength = 5), f
 ## Sentiment analysis with bing and Loughran-McDonald
 
 
+::: {.panel-tabset}
+
+## bing
 ```{r}
 
 bing <- tidytext::get_sentiments(lexicon = "bing")
 
+DT::datatable(bing, class = 'cell-border stripe', option = list(pageLength = 5))
+```
+
+## Loughran-McDonald
+```{r}
 loughran <- textdata::lexicon_loughran()
 
+DT::datatable(loughran, class = 'cell-border stripe', option = list(pageLength = 5))
+
 ```
+:::
 
 Sentiment lexicons are basically lists of words that have been coded with a sentiment value. The bing lexicon has `r nrow(bing)` words and the Loughran-McDonald has `r nrow(loughran)` words. 
 
