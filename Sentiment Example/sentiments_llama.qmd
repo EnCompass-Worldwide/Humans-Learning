@@ -46,6 +46,7 @@ It might be because you are curious about sentiment analysis. This lesson will t
 :::
 ::::
 :::::
+::::::::
 
 # Comparing the different approaches to sentiment analysis
 
