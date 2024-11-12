@@ -42,7 +42,7 @@ library(tidytext)
 ::::: {.column width="80%"}
 :::: box
 ::: box-header
-It might be because you are curious about sentiment analysis. This lesson will take an example dataframe that has a text field and compare the ability of Meta's LLama 3.2, bing's lexicon, and Loughran-McDonald's lexicon at identifying positive and negative sentiments from short responses. This draws on the great work of Julia Silge and David Robinson [Text Mining with R](www.tidytextmining.com) for the lexicon-based sentiment analysis. For the Llama part of the analysis, the `ollama` and `mall` R packages do the heavy lifting with `mall` providing the tidy functions that are used to interact with the data. Thanks for learning with me today. Enjoy!
+It might be because you are curious about sentiment analysis. This demonstration will take an example dataframe that has a text field and compare the ability of Meta's LLama 3.2, bing's lexicon, and Loughran-McDonald's lexicon at identifying positive and negative sentiments from short responses. This draws on the great work of Julia Silge and David Robinson [Text Mining with R](www.tidytextmining.com) for the lexicon-based sentiment analysis. For the Llama part of the analysis, the `ollama` and `mall` R packages do the heavy lifting with `mall` providing the tidy functions that are used to interact with the data. Thanks for learning with me today. Enjoy!
 :::
 ::::
 :::::
@@ -95,7 +95,7 @@ df_bing_loughran <- df_bing |>
   dplyr::full_join(df_loughran, by = "respondentid") |> 
   select(respondentid, bing_words = word.x, bing_sentiments = sentiment.x, loughran_words = word.y, loughran_sentiments = sentiment.y)
 
-DT::datatable(df_bing_loughran, class = 'cell-border stripe', option = list(pageLength = 5), filter = "top")
+DT::datatable(df_bing_loughran, class = 'cell-border stripe', option = list(pageLength = 5))
 
 ```
 
