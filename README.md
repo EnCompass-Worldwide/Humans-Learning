@@ -9,4 +9,5 @@ This is a place for learning R with some short - 5 minute - lessons under the In
 
 
 **Exploration**
+
 [Exploring sentiments with Llama 3.2](https://encompass-worldwide.github.io/Humans-Learning/sentiments_llama.html)
