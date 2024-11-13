@@ -50,7 +50,6 @@ It might be because you are curious about sentiment analysis. This demonstration
 
 # Comparing the different approaches to sentiment analysis
 
-
 I am curious to test this out for a few reasons. First, I find sentiments an interesting way to categorize qualitative data. Second, I like the idea of running a large language model (LLM) locally. Third, this is an open-source large language model so the costs are minimal. Fourth, I have been curious how lexicon-based sentiment analysis compares to what an LLM can do. So, let's dive in.
 
 ## A dataset
@@ -144,7 +143,6 @@ llama_sents <- df |>
 
 ## Visualizing the outputs
 
-
 A simple comparison of each approach can be done with a density plot to show where the proportion of respondents fall on a negative to positive spectrum. Quickly looking at the data it is pretty clear that the Llama LLM more accurately categorizes the sentiment of each respondent. With this we could dive into the positive and negative responses to look for common topics or themes or see how they correlate with other independent variables.
 
 ```{r}
@@ -172,6 +170,5 @@ ggplot(bing_sents) +
 ```
 
 # Conclusion
-
 
 The `Ollama` and `mall` packages are incredibly easy to work with in R. They are not fast, but if you had several hundred responses it is much faster than going through text by hand. If data is collected using a platform that generates a .csv or .xlsx file this is a very simple addition to the workflow.
