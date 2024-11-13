@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://github.com/EnCompass-Worldwide/Humans-Learning/blob/main/prep/humanslearning.png" width = "200px" /> 
+<img src="https://github.com/EnCompass-Worldwide/Humans-Learning/blob/main/prep/humanslearning.png;" width = "200px" /> 
 </div>
 
 
