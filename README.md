@@ -1,5 +1,6 @@
 <div align="center">
 <img src="https://github.com/EnCompass-Worldwide/Humans-Learning/blob/main/humanslearning.png" width = "200px"  /> 
+<img src="humanslearning.png" width = "200px" align = "right" />
 </div>
 
 
