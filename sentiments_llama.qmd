@@ -151,10 +151,10 @@ A simple comparison of each approach can be done with a density plot to show whe
 markdown_text <- "The <span style = 'color:#00457C'><b>bing<b></span> and <span style = 'color:#89C266;'><b>Loughran-McDonald<b></span> sentiment lexicons <br> miss the nuance of the language that the <span style = 'color:#FF7C48;'><b>Llama<b></span> <br> sentiment analysis captures."
 
 ggplot(bing_sents) +
-  geom_vline(xintercept = 0, lwd = 1.5, color = "#7F7F7F",  alpha = .2)+
+  geom_vline(xintercept = 0, lwd = 1.5, color = "#7F7F7F", fill = "#7F7F7F",  alpha = .2)+
   geom_density(aes(score), color = "#00457C", lwd = 1.5) +
-  geom_density(data = loughran_sents, aes(score), color = "#89C266", lwd = 1.5) +
-  geom_density(data = llama_sents, aes(value), color = "#FF7C48", lwd = 1.5) +
+  geom_density(data = loughran_sents, aes(score), color = "#89C266", fill = "#89C266", alpha = .2, lwd = 1.5) +
+  geom_density(data = llama_sents, aes(value), color = "#FF7C48", fill = "#FF7C48", alpha = .2, lwd = 1.5) +
   geom_text(aes(x = .25, y = .5, label = "Neutral"), color = "#7F7F7F", vjust = .25, alpha = .3) +
   geom_segment(aes(x = .03, xend = .16, y = .45, yend = .49), color = "#7F7F7F", alpha = .3)+
   theme_minimal()+
