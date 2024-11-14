@@ -1,9 +1,6 @@
 <div align="center">
 <img src="prep/humanslearning.png" width = "200px"  /> 
-<img src="prep/humanslearning.png" width = "200px" align = "right"/>
 </div>
-
-
 
 
 This is a place for learning R with some short - 5 minute - lessons under the Introduction to R Materials heading and to explore data analysis techniques and approaches through practical examples. Under Explorers will be examples and demonstrations where we work through ideas, tools, and approaches that we think may be relevant to EnCompasses work in monitoring, learning, and evaluation.  
