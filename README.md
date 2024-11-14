@@ -9,11 +9,12 @@ This is a place for learning R with some short - 5 minute - lessons under the In
 
 **Introduction to R Materials**
 
+This is an introduction to working with the gapminder dataset and a first visualization. <br>
 [How to make a simple visualization using the gapminder dataset.](https://encompass-worldwide.github.io/Humans-Learning/lesson1_gapminder.html)
 
 
 **Explorers**
 
-Here's an example that compares two different approaches to sentiment analysis.
+Here's an example that compares two different approaches to sentiment analysis. <br>
 [Exploring sentiments with Llama 3.2](https://encompass-worldwide.github.io/Humans-Learning/sentiments_llama.html)
 
