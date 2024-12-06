@@ -21,9 +21,51 @@ head(df1)
 
 tail(df1)
 
-ggplot(df1) +
+plot <- ggplot(df1) +
   geom_line(aes(x = year, y = avg_gdpPercap, color = continent))
 
 
+# November 22, 2024
+
+#install.packages(c("tidyverse", "gapminder"))
+library(tidyverse)
+library(gapminder)
+
+plot_facet <- plot +
+  facet_wrap(facets = df1$continent)
 
 
+ggplot(df) +
+  geom_point(aes(y = lifeExp, x = country)) +
+  facet_wrap(facets = df$year)
+
+
+# December 6, 2024
+# Reading a .xlsx file
+
+# intalling packages
+install.packages("readxl")
+install.packages("writexl")
+install.packages("here")
+
+# another option for installing packages
+install.packages(c("readxl", "writexl", "here"))
+
+library(tidyverse)
+library(readxl)
+library(writexl)
+library(here)
+
+# Read in an excel file
+df <- read_xlsx(here::here("C:/Users/Brian Calhoon/Documents/Humans Learning/data/testdata2.xlsx"))
+
+#create a new column that takes data from 
+# the column v2, and based on whether or not it
+# is greater than or equal to 3, inserts a 1 or a 0
+
+df1 <- df |> 
+  mutate(new_col = ifelse(v2 >= 3, 1, 0)) 
+
+#write this new file to Excel
+write_xlsx(df1, path = "./data/testdata2.xlsx")
+  

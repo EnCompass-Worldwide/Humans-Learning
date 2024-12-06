@@ -19,42 +19,37 @@ filters:
 source(here::here("prep/prep.R"))
 ```
 
-# Why am I here? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   `r fontawesome::fa("earlybirds", fill = "#FFB947", height = '2em', width = '2em')`
-
-
+# Why am I here?        `r fontawesome::fa("earlybirds", fill = "#FFB947", height = '2em', width = '2em')`
 
 :::::::: columns
-::: {.column width="20%"}
-
+:::: {.column width="20%"}
 ::: box-header
 ![](prep/humanslearning.png)
 :::
-
-:::
-
-:::::: {.column width="80%"}
-::::: box
-:::: box-header
-
-Welcome to the first iteration of the Humans Learning lessons. If you are here then you are interested in learning something about data analysis through code. Each lesson is designed as a 5 - 10 minute virtual session conducted for EnCompass staff to expand their skills with data, and the means of learning is the R programming language. Each lesson will have learning objectives, some example code and explanation to demonstrate a technique or skill, and an open code chunk at the end for you to have some fun. Each lesson is captured in an html file for online access. This is all in the service of humans learning. Enjoy!
-
-:::
 ::::
 
+::::: {.column width="80%"}
+:::: box
+::: box-header
+Welcome to the first iteration of the Humans Learning lessons. If you are here then you are interested in learning something about data analysis through code. Each lesson is designed as a 5 - 10 minute virtual session conducted for EnCompass staff to expand their skills with data, and the means of learning is the R programming language. Each lesson will have learning objectives, some example code and explanation to demonstrate a technique or skill, and an open code chunk at the end for you to have some fun. Each lesson is captured in an html file for online access. This is all in the service of humans learning. Enjoy!
+:::
 ::::
 :::::
+::::::::
 
-# Learning objectives 
-For this first course, the learning objectives are to: 
+# Learning objectives
 
-* Install and load the `tidyverse` and `gapminder` packages in your RStudio console
+For this first course, the learning objectives are to:
 
-* Make your first plot
+-   Install and load the `tidyverse` and `gapminder` packages in your RStudio console
+
+-   Make your first plot
 
 ## Install and load packages
-In your R script, you will use the `install.packages()` and `library()` functions to install and load the two packages Tidyverse and Gapminder. 
 
-Tidyverse provides a suite of compatible data wrangling and visualization tools. Gapminder provides a dataset extracted from the global trend data maintained by, https://www.gapminder.org/. 
+In your R script, you will use the `install.packages()` and `library()` functions to install and load the two packages Tidyverse and Gapminder.
+
+Tidyverse provides a suite of compatible data wrangling and visualization tools. Gapminder provides a dataset extracted from the global trend data maintained by, https://www.gapminder.org/.
 
 ```{r}
 #| class-output: pre
@@ -70,6 +65,7 @@ library(gapminder)
 ```
 
 ## View the data
+
 Now that you have completed the first step it is time to view the data. To look at just the first six rows so you can see the variable names and structure of the data pass `gapminder` to `head()` as in the code below.
 
 ```{r data}
@@ -95,6 +91,7 @@ names(df)
 ```
 
 ## Make a plot
+
 As fun as looking at data is, we probably want to do more. So, we should make our first plot using `ggplot()`. The structure of ggplot requires that we pass it an object (df), the type of `geom_*` we want to make (in this case a scatterplot), and the aesthetics or the variables we want to plot. The code below provides a first plot.
 
 Then we make the plot an object.
