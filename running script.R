@@ -82,14 +82,16 @@ df <- read_xlsx(here::here("./data/colors.xlsx"))
 
 df <- janitor::clean_names(df)
 
-glimpse(df)
-
 #Using pivot longer
 df1 <- df |> 
   pivot_longer(cols = 2:6
-             , names_to = "What_is_your_favorite_color") |> 
+             , names_to = "What_is_your_favorite_color"
+             , values_drop_na = TRUE) |> 
   select(resp, "What_is_your_favorite_color")
 
 #Using pivot wider
 df2 <- df |>
-  unite("fav_color", 2:6)
+  unite("fav_color", 2:6
+        , sep = ", "
+        , na.rm = TRUE)
+
