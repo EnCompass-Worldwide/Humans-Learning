@@ -95,3 +95,80 @@ df2 <- df |>
         , sep = ", "
         , na.rm = TRUE)
 
+
+# December 27, 2024
+# using the summary function
+# and the summarytools package
+
+library(tidyverse)
+library(summarytools)
+library(readxl)
+library(here)
+
+df <- read_xlsx(here::here("C:/Users/Brian Calhoon/Documents/Humans Learning/data/testdata2.xlsx"))
+
+#view the file
+# glimpse is from the dplyr package
+glimpse(df)
+
+#A quick summary of the data
+# in the object
+summary(df)
+
+#Using summarytools we can do a little
+# more
+df |> 
+  select(-respondentid) |> 
+  dfSummary(
+    graph.col = TRUE,
+    style = "grid",
+    graph.magnif = .75) |> 
+  stview()
+
+# just the descriptive stats
+# ignores non-numeric data
+df |> 
+  select(-respondentid) |> 
+  descr() |> 
+  stview()
+
+# View categorical data
+df |> 
+  select(-respondentid, -v2, -lat, -long) |> 
+  freq() |> 
+  stview()
+
+# January 3, 2025
+# playing with filter, group_by, summarize functions
+# install.packages(c("tidyverse", "gapminder"))
+
+library(tidyverse)
+library(gapminder)
+
+#set your object as the gapminder dataset 
+df <- gapminder
+
+glimpse(df)
+
+#americas only 
+df_americas <- df |>
+  filter(continent == "Americas") 
+
+glimpse(df_americas)
+
+# Group by and summarize
+df_americas <- df |> 
+  filter(continent == "Americas") |> 
+  group_by(country) |> 
+  summarize(avg_lifeExp = mean(lifeExp)
+            , med_lifeExp = median(lifeExp))
+
+df_summary <- df |> 
+  group_by(country) |> 
+  summarize(avg_lifeExp = mean(lifeExp)
+            , med_lifeExp = median(lifeExp))
+
+
+
+
+
