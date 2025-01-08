@@ -59,16 +59,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="lessson2_lineplot_files/libs/clipboard/clipboard.min.js"></script>
-<script src="lessson2_lineplot_files/libs/quarto-html/quarto.js"></script>
-<script src="lessson2_lineplot_files/libs/quarto-html/popper.min.js"></script>
-<script src="lessson2_lineplot_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="lessson2_lineplot_files/libs/quarto-html/anchor.min.js"></script>
-<link href="lessson2_lineplot_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="lessson2_lineplot_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="lessson2_lineplot_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="lessson2_lineplot_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="lessson2_lineplot_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="lesson2_lineplot_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lesson2_lineplot_files/libs/quarto-html/quarto.js"></script>
+<script src="lesson2_lineplot_files/libs/quarto-html/popper.min.js"></script>
+<script src="lesson2_lineplot_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="lesson2_lineplot_files/libs/quarto-html/anchor.min.js"></script>
+<link href="lesson2_lineplot_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lesson2_lineplot_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="lesson2_lineplot_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="lesson2_lineplot_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="lesson2_lineplot_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <style>
 
       .quarto-title-block .quarto-title-banner {
@@ -375,7 +375,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(tidyverse)\nlibrary(gapminder)\n\ndf <- gapminder\n\ndf1 <- df |> \n  group_by(continent, year) |> \n  summarize(avg_gdpPercap = mean(gdpPercap))\n\nggplot(df1) +\n  geom_line(aes(x = year, y = avg_gdpPercap, color = continent))","options":{"editor-word-wrap":"true","read-only":"false","warning":"true","editor-quick-suggestions":"false","context":"interactive","output":"true","editor-max-height":"","fig-height":5,"out-width":"700px","label":"unnamed-chunk-1","editor-font-scale":"1","classes":"","message":"true","out-height":"","autorun":"false","results":"markup","dpi":72,"comment":"","fig-cap":"","fig-width":7},"id":1}];
+globalThis.qwebrCellDetails = [{"code":"library(tidyverse)\nlibrary(gapminder)\n\ndf <- gapminder\n\ndf1 <- df |> \n  group_by(continent, year) |> \n  summarize(avg_gdpPercap = mean(gdpPercap))\n\nggplot(df1) +\n  geom_line(aes(x = year, y = avg_gdpPercap, color = continent))","options":{"results":"markup","output":"true","editor-font-scale":"1","out-width":"700px","editor-word-wrap":"true","dpi":72,"editor-quick-suggestions":"false","message":"true","context":"interactive","fig-width":7,"autorun":"false","classes":"","warning":"true","read-only":"false","out-height":"","editor-max-height":"","comment":"","fig-height":5,"fig-cap":"","label":"unnamed-chunk-1"},"id":1}];
 
 </script>
 <script type="module">
@@ -1981,7 +1981,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div><div class="column" style="width:80%;">
 <div class="box">
 <div class="box-header">
-<p>Welcome to the second iteration of the Humans Learning lessons. If you came back after the first iteration, then you are interested in learning something about data visualization through code. As a reminder, each lesson is designed as a 5 - 10 minute virtual session conducted for EnCompass staff to expand their skills with data, and the means of learning is the R programming language. Each lesson will have learning objectives, some example code and explanation to demonstrate a technique or skill, and an open code chunk at the end for you to have some fun. Each lesson is then captured in an html file for online access. This is all in the service of humans learning. Enjoy!</p>
+<p>Welcome to the second iteration of the Humans Learning lessons. As a reminder, each lesson is designed as a 5 - 10 minute virtual session conducted for EnCompass staff to expand their skills with data, and the means of learning is the R programming language. Each lesson will have learning objectives, some example code and explanation to demonstrate a technique or skill, and an open code chunk at the end for you to have some fun. Each lesson is then captured in an html file for online access. This is all in the service of humans learning. Enjoy!</p>
 </div>
 </div>
 </div>
@@ -2056,7 +2056,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="lessson2_lineplot_files/figure-html/plot-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="lesson2_lineplot_files/figure-html/plot-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2090,7 +2090,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="lessson2_lineplot_files/figure-html/plot%20more-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="lesson2_lineplot_files/figure-html/plot%20more-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
