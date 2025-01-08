@@ -15,7 +15,6 @@ filters:
   - webr
 ---
 
-
 ```{r global_options, include=F, warning=F, message=F, error=F}
 source(here::here("prep/prep.R"))
 ```
@@ -42,9 +41,9 @@ Welcome to the second iteration of the Humans Learning lessons. If you came back
 
 For this session, the learning objectives are to:
 
-- Group data to calculate summary statistics
+-   Group data to calculate summary statistics
 
-- Make your first line plot
+-   Make your first line plot
 
 ## Install and load packages
 
@@ -84,12 +83,9 @@ tail(df)
 
 ```
 
-
 ## Make a line plot
 
-As fun as looking at data is, we probably want to do more. Since our objective is to make a line plot, we should do that next. The structure of ggplot requires that we pass it an object (df), the type of `geom_*` we want to make (in this case a line plot), and the aesthetics or the variables we want to plot. 
-
-
+As fun as looking at data is, we probably want to do more. Since our objective is to make a line plot, we should do that next. The structure of ggplot requires that we pass it an object (df), the type of `geom_*` we want to make (in this case a line plot), and the aesthetics or the variables we want to plot.
 
 ```{r plot}
 #make a plot
@@ -116,9 +112,9 @@ df1 <- df |>
 
 Now we just have to remember the how ggplot works and make our line plot. It takes three components.
 
-- The data object, `df1`
-- The geom, `geom_line()`
-- The aesthetics, `year` (x-axis), `avg_gdpPercap` (y-axis), and `continent` (color). 
+-   The data object, `df1`
+-   The geom, `geom_line()`
+-   The aesthetics, `year` (x-axis), `avg_gdpPercap` (y-axis), and `continent` (color).
 
 ```{r plot more}
 
