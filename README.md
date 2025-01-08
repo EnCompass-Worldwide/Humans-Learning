@@ -11,9 +11,7 @@ This is an introduction to working with the gapminder dataset and a first visual
 [How to make a simple visualization using the gapminder dataset.](https://encompass-worldwide.github.io/Humans-Learning/lesson1_gapminder.html)
 
 This is an introduction to making a line plot in R. It highlights how to group data before making this kind of plot. 
-[How to group data and make a line plot.] (https://encompass-worldwide.github.io/Humans-Learning/lesson2_lineplot.html)
-
-
+[How to group data and make a line plot.](https://encompass-worldwide.github.io/Humans-Learning/lesson2_lineplot.html)
 
 **Explorers**
 
