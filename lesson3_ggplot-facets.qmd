@@ -84,13 +84,13 @@ tail(df)
 
 ```
 
-It looks good. We'll explore some additional options for looking at data sets in the coming weeks.
+It look pretty clean and tidy. We'll explore some additional options for looking at data sets in the coming weeks.
 
 ## Make a facetted plot
 
-We've used `ggplot2` in the previous lessons so this will seem quite familiar. The structure of ggplot requires that we pass it an object (df), the type of `geom_*` we want to make (in this case a line plot), and the aesthetics or the variables we want to plot.
+We've used `ggplot2` in the previous lessons so this will seem quite familiar. The structure of ggplot requires that we pass it an object (df), the type of `geom_*` we want to make (in this case a line plot), and the aesthetics (the variables we want to plot).
 
-We can start with the plot lesson two and assign it to the object, `plot`.
+We can start with the plot from lesson two and assign it to the object, `plot`.
 
 ```{r plot}
 
@@ -108,6 +108,10 @@ plot <- ggplot(df1) +
 
 That gives us the same line plot as last session.
 
+Facetting will separate each of this lines into their own plot panel. You can imagine that if you have lots of data on a single plot, it is easier to see if you can separate visualizations by one of the discrete variables.
+
+Below, the data is separated by continent. Note that the axes across each plot panel are the same which allows for comparison. This is a default of the `facet_wrap()` function. There are cases where you would want to set this feature to false, but in most cases it allows for obvious comparisons across the data.
+
 ```{r plot more}
 
 #| class-output: pre
@@ -118,6 +122,45 @@ plot +
 
 
 ```
+
+Here's another example that takes the data for one continent and facets it by country. 
+
+::: {.panel-tabset}
+
+## Standard Plot
+```{r plot more years}
+
+#| class-output: pre
+
+#Filtr
+df2 <- df |> 
+  filter(continent == "Africa") |>
+  group_by(country, year) |> 
+  summarize(avg_gdpPercap = mean(gdpPercap))
+
+
+plot_afr <- ggplot(df2) +
+  geom_line(aes(x = year, y = avg_gdpPercap, color = country)) +
+  labs(title = "Standard Plot") +
+  theme(legend.position = "none")
+
+plot_afr
+```
+
+## Facetted Plot
+
+```{r}
+
+plot_afr + 
+  facet_wrap(facets = df2$country) +
+  labs(title = "Facetted Plot") +
+  theme(legend.position = "none")
+
+
+
+```
+
+:::
 
 ## Have fun!
 
