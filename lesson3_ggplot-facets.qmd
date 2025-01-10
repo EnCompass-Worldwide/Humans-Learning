@@ -125,6 +125,21 @@ plot +
 
 Here's another example that takes the data for one continent and facets it by country. 
 
+First, we do a little data wrangling. Then, we plot.
+
+```{r}
+
+#| class-output: pre
+
+#Filter
+df2 <- df |> 
+  filter(continent == "Americas") |>
+  group_by(country, year) |> 
+  summarize(avg_gdpPercap = mean(gdpPercap))
+
+
+```
+
 ::: {.panel-tabset}
 
 ## Standard Plot
@@ -132,29 +147,23 @@ Here's another example that takes the data for one continent and facets it by co
 
 #| class-output: pre
 
-#Filtr
-df2 <- df |> 
-  filter(continent == "Africa") |>
-  group_by(country, year) |> 
-  summarize(avg_gdpPercap = mean(gdpPercap))
-
-
-plot_afr <- ggplot(df2) +
+plot_amer <- ggplot(df2) +
   geom_line(aes(x = year, y = avg_gdpPercap, color = country)) +
   labs(title = "Standard Plot") +
   theme(legend.position = "none")
 
-plot_afr
+plot_amer
 ```
 
 ## Facetted Plot
 
 ```{r}
 
-plot_afr + 
+plot_amer + 
   facet_wrap(facets = df2$country) +
   labs(title = "Facetted Plot") +
-  theme(legend.position = "none")
+  theme(legend.position = "none"
+        , axis.text.x = element_text(angle = 45, vjust = .5, hjust = 1))
 
 
 
