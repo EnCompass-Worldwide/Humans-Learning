@@ -111,9 +111,13 @@ df <- read_xlsx(here::here("C:/Users/Brian Calhoon/Documents/Humans Learning/dat
 # glimpse is from the dplyr package
 glimpse(df)
 
+str(df)
+
+head(df)
+
 #A quick summary of the data
 # in the object
-summary(df)
+summary(df) 
 
 #Using summarytools we can do a little
 # more
