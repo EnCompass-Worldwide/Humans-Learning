@@ -173,6 +173,59 @@ df_summary <- df |>
             , med_lifeExp = median(lifeExp))
 
 
+#1/24/25
+#ggiraph
+
+library(tidyverse)
+library(gapminder)
+library(ggiraph)
+
+#Build off the skills we've been learning
+
+#set your object as the gapminder dataset 
+df <- gapminder
+
+glimpse(df)
+
+#americas only 
+df_americas <- df |>
+  filter(continent == "Americas") 
+
+glimpse(df_americas)
 
 
+# Group by and summarize
+df_americas <- df |> 
+  filter(continent == "Americas") |> 
+  group_by(country, year) |> 
+  summarize(avg_lifeExp = mean(lifeExp)
+            , med_lifeExp = median(lifeExp))
+
+#df_summary <- df |> 
+ # group_by(country) |> 
+  #summarize(avg_lifeExp = mean(lifeExp)
+   #         , med_lifeExp = median(lifeExp))
+
+#make a line plot
+ggplot(df_americas
+             , aes(x = year, y = avg_lifeExp, group = country
+                   , color = country)) +
+  geom_line()
+
+#A simple tweak to make it interactive
+gg <- ggplot(df_americas
+             , aes(x = year, y = avg_lifeExp, group = country
+                   , color = country)) +
+  geom_line_interactive(aes(tooltip = country, data_id = country)) +
+  labs(title = "Interactive line plot")
+
+gg
+#now use the gg object created above
+plot <- girafe(ggobj = gg, width_svg = 8, height = 6
+               , options = list(
+                 opts_hover_inv(css = "opacity:0.1;"),
+                 opts_hover(css = "stroke-width:1;")
+               ))            
+              
+plot 
 
