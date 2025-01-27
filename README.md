@@ -13,6 +13,9 @@ This is an introduction to working with the gapminder dataset and a first visual
 This is an introduction to making a line plot in R. It highlights how to group data before making this kind of plot. <br> 
 [How to group data and make a line plot.](https://encompass-worldwide.github.io/Humans-Learning/lesson2_lineplot.html)
 
+Now we take the line plot and introduce facets to show more data cleanly. <br>
+[Making multiple plots using the power of facets](https://encompass-worldwide.github.io/Humans-Learning/lesson3_ggplot-facets.html)
+
 **Explorers**
 
 Here's an example that compares two different approaches to sentiment analysis. <br>
